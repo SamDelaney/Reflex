@@ -1,0 +1,15 @@
+{
+    "interlinearDisplay": {
+        "output": ["Output", "Salida", "Production"],
+        "input": ["Input", "Entrada", "Contribution"],
+        "copy": ["Copy to Clipboard", "Copiar al Portapapeles", "Copier dans le Presse-papier"]
+    },
+    "pickDataSource": {
+        "dataSource": ["Data Source", "Fuente de Datos", "La Source de Données"],
+        "addDataSource": ["Add Data Source", "Agregar fuente de datos", "Ajouter une source de données"]
+    },
+    "pickFormatStyle": {
+        "formatStyle" : ["Format Style", "Estilo de formato", "Style de format"],
+        "createFormatStyle": ["Create Format Style", "Crear estilo de formato", "Créer un style de format"]
+    }
+}
