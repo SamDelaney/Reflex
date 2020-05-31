@@ -13,7 +13,10 @@
         "createFormatStyle": ["Create Format Style", "Crear estilo de formato", "Créer un style de format"]
     },
     "referenceSelect": {
-        "languageNameSelect": ["Language Name", "", ""],
-        "dataSourceRefSelect": ["Data Source Reference", "", ""]
+        "languageNameSelect": ["Language Name", "Nombre del lenguaje", "Nom de la langue"],
+        "dataSourceRefSelect": ["Data Source Reference", "Referencia de fuente de datos", "Référence de la source de données"],
+        "noneOption": ["None", "Nada", "Rien"],
+        "firstOption": ["First Line", "Primera linea", "Première ligne"],
+        "rightOption": ["On Right", "A la derecha", "Sur la droite"]
     }
 }

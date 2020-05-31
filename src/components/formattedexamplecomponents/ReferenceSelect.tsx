@@ -23,12 +23,12 @@ function ReferenceSelect(props:  ReferenceSelectProps & LocalizeContextProps) {
             <FormLabel><Translate id={"referenceSelect." + props.selectLabel} /> </FormLabel>
             <Grid container>
                 <Grid item xs={6}>
-                <RadioGroup>
-                    <FormControlLabel value="first" control={<Radio />} label="First Line" />
-                    <FormControlLabel value="right" control={<Radio />} label="On Right" />
-                    <FormControlLabel value="none" control={<Radio />} label="None"/>
-                </RadioGroup>
-            </Grid>
+                    <RadioGroup>
+                        <FormControlLabel value="first" control={<Radio />} label={<Translate id='referenceSelect.firstOption'/>} />
+                        <FormControlLabel value="right" control={<Radio />} label={<Translate id='referenceSelect.rightOption'/>} />
+                        <FormControlLabel value="none" control={<Radio />} label={<Translate id='referenceSelect.noneOption'/>} />
+                    </RadioGroup>
+                </Grid>
                 <Grid item xs={6}> 
                     <TextField />
                 </Grid>
