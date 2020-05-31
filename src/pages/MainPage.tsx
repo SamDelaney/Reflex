@@ -6,8 +6,8 @@ import FormattedExample from '../components/FormattedExample';
 function Main() {
     return (
         <div className="MainRow">
-            <FormattedExample />
             <InterlinearColumn />
+            <FormattedExample />
         </div>
     )
 }

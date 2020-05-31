@@ -20,8 +20,6 @@ function PickFormatStyle() {
           ...state,
           [name]: event.target.value,
         });
-
-        console.log(state.formatStyle);
       };
 
     return (

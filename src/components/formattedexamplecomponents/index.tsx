@@ -1,9 +1,9 @@
 import PickDataSource from './PickDataSource';
 import PickFormatStyle from './PickFormatStyle';
-import LanguageName from './LanguageName';
+import ReferenceSelect from './ReferenceSelect';
 import InterlinearDisplay from './InterlinearDisplay';
 
 export {InterlinearDisplay};
-export {LanguageName};
+export {ReferenceSelect};
 export {PickDataSource};
 export {PickFormatStyle};

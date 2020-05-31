@@ -11,5 +11,9 @@
     "pickFormatStyle": {
         "formatStyle" : ["Format Style", "Estilo de formato", "Style de format"],
         "createFormatStyle": ["Create Format Style", "Crear estilo de formato", "Créer un style de format"]
+    },
+    "referenceSelect": {
+        "languageNameSelect": ["Language Name", "", ""],
+        "dataSourceRefSelect": ["Data Source Reference", "", ""]
     }
 }

@@ -25,7 +25,7 @@ const localizeInit = {
     defaultLanguage:
       localizedLanguages.find(l => l.code === navigator.language) !== undefined
         ? navigator.language
-        : "es"
+        : "en"
   }
 };
 
