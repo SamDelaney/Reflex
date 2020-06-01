@@ -6,7 +6,7 @@
     },
     "pickDataSource": {
         "dataSource": ["Data Source", "Fuente de Datos", "La Source de Données"],
-        "addDataSource": ["Add Data Source", "Agregar fuente de datos", "Ajouter une source de données"]
+        "addDataSource": ["Upload Data Source", "Subir fuente de datos", "Télécharger la source de données"]
     },
     "pickFormatStyle": {
         "formatStyle" : ["Format Style", "Estilo de formato", "Style de format"],
@@ -18,5 +18,10 @@
         "noneOption": ["None", "Nada", "Rien"],
         "firstOption": ["First Line", "Primera linea", "Première ligne"],
         "rightOption": ["On Right", "A la derecha", "Sur la droite"]
+    },
+    "FESwitches": {
+        "literalTranslation": ["Include Literal Translation", "Incluir traducción literal", "Inclure la traduction littérale"],
+        "notes": ["Include Notes", "Incluir notas", "Inclure des notes"],
+        "ungrammatical": ["Mark Ungrammatical", "Marca no gramatical", "Marquer non grammatical"] 
     }
 }

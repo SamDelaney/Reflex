@@ -1,7 +1,8 @@
 import React from 'react';
 
+import { AddCircleOutline } from '@material-ui/icons';
 import { Translate, withLocalize } from 'react-localize-redux';
-import { Container, FormControl, NativeSelect, FormHelperText, Button, Grid } from '@material-ui/core';
+import { Container, FormControl, NativeSelect, FormHelperText, IconButton, Grid } from '@material-ui/core';
 
 
 interface PickFormatStyleState {
@@ -24,8 +25,6 @@ function PickFormatStyle() {
 
     return (
         <Container maxWidth='sm'>
-            <Grid container>
-                <Grid item xs={6}>
             <FormControl>
                 <NativeSelect
                 value={state.formatStyle}
@@ -40,13 +39,10 @@ function PickFormatStyle() {
                 </NativeSelect>
                 <FormHelperText> <Translate id="pickFormatStyle.formatStyle" /> </FormHelperText>
             </FormControl>
-            </Grid>
-                <Grid item xs={6}> 
-                    <Button variant="outlined">
-                        <Translate id="pickFormatStyle.createFormatStyle" /> 
-                    </Button>
-                </Grid>
-            </Grid>
+
+            <IconButton aria-label="create">
+                    <AddCircleOutline />
+            </IconButton>
         </Container>
     )
 }

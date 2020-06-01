@@ -44,7 +44,7 @@ function PickDataSource() {
             </FormControl>
             </Grid>
                 <Grid item xs={6}> 
-                    <Button variant="outlined">
+                    <Button variant="contained">
                         <Translate id="pickDataSource.addDataSource" />
                     </Button>
                 </Grid>

@@ -1,14 +1,16 @@
 import React from 'react';
 
-import InterlinearColumn from '../components/formattedexamplecomponents/InterlinearDisplay';
-import FormattedExample from '../components/FormattedExample';
+import InterlinearDisplay from '../components/FEComponents/InterlinearDisplay';
+import FEColumn from '../components/FEColumn';
 
 function Main() {
     return (
-        <div className="MainRow">
-            <InterlinearColumn />
-            <FormattedExample />
-        </div>
+        <>
+            <div className="MainRow">
+                <InterlinearDisplay />
+                <FEColumn />
+            </div>
+        </>
     )
 }
 

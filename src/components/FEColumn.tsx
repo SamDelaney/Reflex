@@ -2,19 +2,19 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 
 import { withLocalize } from 'react-localize-redux';
-import { ReferenceSelect, PickFormatStyle, PickDataSource} from './formattedexamplecomponents';
+import { ReferenceSelect, PickFormatStyle, PickDataSource, FESwitches} from './FEComponents';
 
 
 
-function FormattedExample() {
+function FEColumn() {
     return (
         <Container maxWidth='sm'>
-            <PickDataSource />
             <PickFormatStyle />
             <ReferenceSelect selectLabel={"languageNameSelect"}/>
             <ReferenceSelect selectLabel={"dataSourceRefSelect"}/>
+            <FESwitches />
         </Container>
     )
 }
 
-export default withLocalize(FormattedExample);
+export default withLocalize(FEColumn);
