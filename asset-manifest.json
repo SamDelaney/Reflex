@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/LITEr/static/css/main.cd22f453.chunk.css",
+    "main.js": "/LITEr/static/js/main.cbe809f3.chunk.js",
+    "main.js.map": "/LITEr/static/js/main.cbe809f3.chunk.js.map",
+    "runtime-main.js": "/LITEr/static/js/runtime-main.62789470.js",
+    "runtime-main.js.map": "/LITEr/static/js/runtime-main.62789470.js.map",
+    "static/js/2.5699449e.chunk.js": "/LITEr/static/js/2.5699449e.chunk.js",
+    "static/js/2.5699449e.chunk.js.map": "/LITEr/static/js/2.5699449e.chunk.js.map",
+    "index.html": "/LITEr/index.html",
+    "precache-manifest.f30ec341e0a0806559d5ddec75209229.js": "/LITEr/precache-manifest.f30ec341e0a0806559d5ddec75209229.js",
+    "service-worker.js": "/LITEr/service-worker.js",
+    "static/css/main.cd22f453.chunk.css.map": "/LITEr/static/css/main.cd22f453.chunk.css.map",
+    "static/js/2.5699449e.chunk.js.LICENSE.txt": "/LITEr/static/js/2.5699449e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62789470.js",
+    "static/js/2.5699449e.chunk.js",
+    "static/css/main.cd22f453.chunk.css",
+    "static/js/main.cbe809f3.chunk.js"
+  ]
+}
