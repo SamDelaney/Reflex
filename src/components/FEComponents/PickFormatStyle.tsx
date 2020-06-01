@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AddCircleOutline } from '@material-ui/icons';
 import { Translate, withLocalize } from 'react-localize-redux';
-import { Container, FormControl, NativeSelect, FormHelperText, IconButton, Grid } from '@material-ui/core';
+import { Container, FormControl, NativeSelect, FormHelperText, IconButton } from '@material-ui/core';
 
 
 interface PickFormatStyleState {

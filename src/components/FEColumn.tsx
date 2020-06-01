@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 
 import { withLocalize } from 'react-localize-redux';
-import { ReferenceSelect, PickFormatStyle, PickDataSource, FESwitches} from './FEComponents';
+import { ReferenceSelect, PickFormatStyle, FESwitches} from './FEComponents';
 
 
 

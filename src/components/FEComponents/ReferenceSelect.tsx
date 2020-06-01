@@ -30,7 +30,7 @@ function ReferenceSelect(props:  ReferenceSelectProps & LocalizeContextProps) {
                     </RadioGroup>
                 </Grid>
                 <Grid item xs={6}> 
-                    <TextField />
+                    <TextField label={<Translate id="referenceSelect.name"/>}/>
                 </Grid>
             </Grid>
         </Container>
