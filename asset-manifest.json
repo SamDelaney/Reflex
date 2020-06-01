@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/LITEr/static/css/main.cd22f453.chunk.css",
-    "main.js": "/LITEr/static/js/main.cbe809f3.chunk.js",
-    "main.js.map": "/LITEr/static/js/main.cbe809f3.chunk.js.map",
+    "main.js": "/LITEr/static/js/main.0838b855.chunk.js",
+    "main.js.map": "/LITEr/static/js/main.0838b855.chunk.js.map",
     "runtime-main.js": "/LITEr/static/js/runtime-main.62789470.js",
     "runtime-main.js.map": "/LITEr/static/js/runtime-main.62789470.js.map",
-    "static/js/2.5699449e.chunk.js": "/LITEr/static/js/2.5699449e.chunk.js",
-    "static/js/2.5699449e.chunk.js.map": "/LITEr/static/js/2.5699449e.chunk.js.map",
+    "static/js/2.0e38cc63.chunk.js": "/LITEr/static/js/2.0e38cc63.chunk.js",
+    "static/js/2.0e38cc63.chunk.js.map": "/LITEr/static/js/2.0e38cc63.chunk.js.map",
     "index.html": "/LITEr/index.html",
-    "precache-manifest.f30ec341e0a0806559d5ddec75209229.js": "/LITEr/precache-manifest.f30ec341e0a0806559d5ddec75209229.js",
+    "precache-manifest.c53bb22fa77c1c4da0eb99e9b8bf63a4.js": "/LITEr/precache-manifest.c53bb22fa77c1c4da0eb99e9b8bf63a4.js",
     "service-worker.js": "/LITEr/service-worker.js",
     "static/css/main.cd22f453.chunk.css.map": "/LITEr/static/css/main.cd22f453.chunk.css.map",
-    "static/js/2.5699449e.chunk.js.LICENSE.txt": "/LITEr/static/js/2.5699449e.chunk.js.LICENSE.txt"
+    "static/js/2.0e38cc63.chunk.js.LICENSE.txt": "/LITEr/static/js/2.0e38cc63.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.62789470.js",
-    "static/js/2.5699449e.chunk.js",
+    "static/js/2.0e38cc63.chunk.js",
     "static/css/main.cd22f453.chunk.css",
-    "static/js/main.cbe809f3.chunk.js"
+    "static/js/main.0838b855.chunk.js"
   ]
 }
