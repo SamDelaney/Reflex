@@ -3,6 +3,7 @@ import React from 'react';
 import { AddCircleOutline } from '@material-ui/icons';
 import { Translate, withLocalize } from 'react-localize-redux';
 import { Container, FormControl, NativeSelect, FormHelperText, IconButton } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 
 interface PickFormatStyleState {
@@ -40,7 +41,7 @@ function PickFormatStyle() {
                 <FormHelperText> <Translate id="pickFormatStyle.formatStyle" /> </FormHelperText>
             </FormControl>
 
-            <IconButton aria-label="create">
+            <IconButton aria-label="create" component={Link} to="/styles">
                     <AddCircleOutline />
             </IconButton>
         </Container>

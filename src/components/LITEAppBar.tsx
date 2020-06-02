@@ -1,8 +1,10 @@
 import React from 'react';
 import { withLocalize, Translate } from 'react-localize-redux';
-import {AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, createStyles, Drawer, List, ListItem, ListItemText} from '@material-ui/core';
-import {Menu, AccountCircle, Settings} from '@material-ui/icons';
-import { Link, NavLink } from 'react-router-dom';
+import {AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, createStyles, Drawer, List, ListItem, ListItemText, ListItemIcon, Divider} from '@material-ui/core';
+import {Menu, AccountCircle, Settings, History, AddCircleOutline, Assignment, Style} from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+
+const drawerWidth = 240;
 
 const AppBarStyles = makeStyles((theme: Theme) => 
     createStyles({
@@ -11,6 +13,12 @@ const AppBarStyles = makeStyles((theme: Theme) =>
         },
         title: {
             flexGrow: 1
+        },
+        drawer: {
+            width: drawerWidth
+        },
+        menuButton: {
+            marginRight: theme.spacing(2)
         }
     }),
 );
@@ -64,20 +72,26 @@ function LITEAppBar() {
                         </IconButton>
                 </Toolbar >
             </AppBar>
-            <Drawer variant="persistent" open={state.drawerOpen}>
+            <Drawer variant="persistent" open={state.drawerOpen} className={classes.drawer} classes={{paper: classes.drawer}}>
                 <Toolbar />
                 <List>
                     <ListItem button key="convert" component={ Link } to="/">
+                        <ListItemIcon><Assignment /></ListItemIcon>
                         <ListItemText primary={<Translate id="menuDrawer.convert" />}/>
                     </ListItem>
                     <ListItem button key="styles" component={ Link } to="/styles">
+                        <ListItemIcon><Style /></ListItemIcon>
                         <ListItemText primary={<Translate id="menuDrawer.styles" />}/>
                     </ListItem>
                     <ListItem button key="history" component={ Link } to="/history">
+                        <ListItemIcon><History /></ListItemIcon>
                         <ListItemText primary={<Translate id="menuDrawer.history" />}/>
                     </ListItem>
                     
+                    <Divider />
+
                     <ListItem button key="settings" component={ Link } to="/settings">
+                        <ListItemIcon><Settings /></ListItemIcon>
                         <ListItemText primary={<Translate id="menuDrawer.settings" />}/>
                     </ListItem>
                 </List>
