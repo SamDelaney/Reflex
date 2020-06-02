@@ -24,5 +24,11 @@
         "literalTranslation": ["Include Literal Translation", "Incluir traducción literal", "Inclure la traduction littérale"],
         "notes": ["Include Notes", "Incluir notas", "Inclure des notes"],
         "ungrammatical": ["Mark Ungrammatical", "Marca no gramatical", "Marquer non grammatical"] 
+    },
+    "menuDrawer": {
+        "settings": ["Settings", "", ""],
+        "history": ["History", "", ""],
+        "convert": ["Convert Text", "", ""],
+        "styles": ["Format Styles", "", ""]
     }
 }
