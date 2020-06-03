@@ -24,7 +24,7 @@ const defaultState : TempState = {
    darkThemeOn: false
 };
 
-const tempReducer = (state: TempState | undefined, action: TempActions): TempState => {
+export const tempReducer = (state: TempState | undefined, action: TempActions): TempState => {
     if (typeof state === 'undefined') {
       state = defaultState // If state is undefined, initialize it with a default value
     }
@@ -32,9 +32,9 @@ const tempReducer = (state: TempState | undefined, action: TempActions): TempSta
     return state;
   }
 
-export const rootReducer: Reducer<StoreState> = combineReducers<StoreState>({
+const rootReducer: Reducer<StoreState> = combineReducers<StoreState>({
   localize: localizeReducer,
   temp: tempReducer
 });
 
-export default tempReducer;
+export default rootReducer;

@@ -11,10 +11,10 @@ import translations from './translations.json';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from "./store";
 
-const localizedLanguages = [
+export const localizedLanguages = [
   { name: "English", code: "en" },
-  { name: "Spanish", code: "es" },
-  { name: "French", code: "fr" }
+  { name: "Español", code: "es" },
+  { name: "Français", code: "fr" }
 ];
 
 const localizeInit = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withLocalize, Translate } from 'react-localize-redux';
 import {AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, createStyles, Drawer, List, ListItem, ListItemText, ListItemIcon, Divider} from '@material-ui/core';
-import {Menu, AccountCircle, Settings, History, AddCircleOutline, Assignment, Style} from '@material-ui/icons';
+import {Menu, AccountCircle, Settings, History, Assignment, Style} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
