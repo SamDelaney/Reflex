@@ -24,5 +24,15 @@
         "literalTranslation": ["Include Literal Translation", "Incluir traducción literal", "Inclure la traduction littérale"],
         "notes": ["Include Notes", "Incluir notas", "Inclure des notes"],
         "ungrammatical": ["Mark Ungrammatical", "Marca no gramatical", "Marquer non grammatical"] 
+    },
+    "menuDrawer": {
+        "settings": ["Settings", "Configuraciones", "Réglages"],
+        "history": ["History", "Historia", "Histoire"],
+        "convert": ["Convert Text", "Convertir texto", "Convertir du texte"],
+        "styles": ["Format Styles", "Estilos de formato", "Styles de format"]
+    },
+    "settingsPage": {
+        "language": ["Language", "Lengua", "Langue"],
+        "title": ["Settings", "Configuraciones", "Réglages"]
     }
 }
