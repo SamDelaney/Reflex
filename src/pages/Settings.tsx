@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Theme, makeStyles, createStyles, FormControl, NativeSelect, FormLabel } from '@material-ui/core';
-import { Translate, withLocalize, setActiveLanguage, LocalizeContextProps } from 'react-localize-redux';
+import { Translate, withLocalize, LocalizeContextProps } from 'react-localize-redux';
 import { localizedLanguages } from "../index";
 
 interface SettingsState {
