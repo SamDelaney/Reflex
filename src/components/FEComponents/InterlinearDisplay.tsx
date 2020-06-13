@@ -6,7 +6,6 @@ import PickDataSource from './PickDataSource';
 import { CardContent, Typography, InputBase, makeStyles, Theme, createStyles } from '@material-ui/core';
 import { Translate, withLocalize } from 'react-localize-redux';
 import axios from 'axios';
-import XML from 'xml.one';
 
 const InterlinearColumnStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -18,7 +17,7 @@ const InterlinearColumnStyles = makeStyles((theme: Theme) =>
 );
 
 function InterlinearColumn() {
-    const classes = InterlinearColumnStyles()
+    const classes = InterlinearColumnStyles();
 
     const displayResult = () => {
         var location = document.URL.replace('#/', '/');
@@ -26,14 +25,15 @@ function InterlinearColumn() {
         axios.get(location + "flextext/IcelandicExample.flextext").then((xml) => {
             axios.get(location + "xml2LeipzigLITE2.xsl").then((xsl) => 
             {
-                var parsedXML = XML.parse(xml.data);
-                var parsedXSL = XML.parse(xsl.data);
+                var processor = new XSLTProcessor();
+                var parser = new DOMParser();
 
-                var html = XML.transform(parsedXML, parsedXSL);
+                processor.importStylesheet(parser.parseFromString(xsl.data, "text/xml"));
+
+                var result = processor.transformToDocument(parser.parseFromString(xml.data, "text/xml"));
 
                 var outputField = document.getElementsByClassName(classes.outputField)[0];
-                
-                outputField.innerHTML = html.documentElement.innerHTML;
+                outputField.innerHTML = result.documentElement.innerHTML;
             })
 
         });
