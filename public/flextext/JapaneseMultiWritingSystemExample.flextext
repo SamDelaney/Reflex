@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document version="2">
+  <interlinear-text guid="3dcdc93c-2ecd-495e-981b-1f45bc5a6726">
+    <paragraphs>
+      <paragraph guid="df2fe851-5e2a-432c-b2df-e6aaf77ce65c">
+        <phrases>
+          <phrase guid="7a3842d5-7ee8-439f-9970-4a66dbd60603">
+            <item type="segnum" lang="en">1</item>
+            <words>
+              <word guid="a05f3705-f3cd-400e-aa1b-1acada7c7d88">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">hayashi</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="ja-Qaaa-x-romn-roman">hayashi</item>
+                    <item type="cf" lang="ja-Qaaa-x-romn-roman">hayashi</item>
+                    <item type="cf" lang="ja-Kana-x-kata">ハヤシ</item>
+                    <item type="gls" lang="en">woods</item>
+                    <item type="msa" lang="en">n</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">woods</item>
+                <item type="pos" lang="en">n</item>
+              </word>
+              <word guid="880c02d0-1c31-44c1-8774-e84ccc5328c5">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">tore</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="ja-Qaaa-x-romn-roman">tore</item>
+                    <item type="cf" lang="ja-Qaaa-x-romn-roman">tore</item>
+                    <item type="cf" lang="ja-Kana-x-kata"></item>
+                    <item type="gls" lang="en">toilet</item>
+                    <item type="msa" lang="en">n</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">toilet</item>
+                <item type="pos" lang="en">n</item>
+              </word>
+              <word guid="da533466-ddc5-41ed-80ac-489860da1d1c">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">wa</item>
+              </word>
+              <word guid="7bc86c14-5a3c-4132-a463-4830bbc62daa">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">doko</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="ja-Qaaa-x-romn-roman">doko</item>
+                    <item type="cf" lang="ja-Qaaa-x-romn-roman">doko</item>
+                    <item type="cf" lang="ja-Kana-x-kata"></item>
+                    <item type="gls" lang="en">where</item>
+                    <item type="msa" lang="en">&lt;Not Sure&gt;</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">where</item>
+              </word>
+              <word guid="0d793ac6-7bd9-47c0-a321-e892d65e3798">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">desu</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="ja-Qaaa-x-romn-roman">desu</item>
+                    <item type="cf" lang="ja-Qaaa-x-romn-roman">desu</item>
+                    <item type="cf" lang="ja-Kana-x-kata"></item>
+                    <item type="gls" lang="en">COP</item>
+                    <item type="msa" lang="en">v</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">COP</item>
+                <item type="pos" lang="en">v</item>
+              </word>
+              <word guid="a514571c-c1bc-4f0e-8785-84e0b92d7f03">
+                <item type="txt" lang="ja-Qaaa-x-romn-roman">ka</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="ja-Qaaa-x-romn-roman">ka</item>
+                    <item type="cf" lang="ja-Qaaa-x-romn-roman">ka</item>
+                    <item type="cf" lang="ja-Kana-x-kata"></item>
+                    <item type="gls" lang="en">QM</item>
+                    <item type="msa" lang="en">&lt;Not Sure&gt;</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">QM</item>
+              </word>
+              <word>
+                <item type="punct" lang="ja-Qaaa-x-romn-roman">?</item>
+              </word>
+            </words>
+            <item type="gls" lang="en"></item>
+          </phrase>
+        </phrases>
+      </paragraph>
+    </paragraphs>
+    <languages>
+      <language lang="en" font="Times New Roman" />
+      <language lang="ja-Qaaa-x-romn-roman" font="Charis SIL" vernacular="true" />
+    </languages>
+  </interlinear-text>
+</document>

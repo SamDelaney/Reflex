@@ -1,33 +1,42 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import PickDataSource from './PickDataSource';
-import { CardContent, Typography, InputBase } from '@material-ui/core';
+import { CardContent, Typography, InputBase, makeStyles, Theme, createStyles } from '@material-ui/core';
 import { Translate, withLocalize } from 'react-localize-redux';
-import { loadXML} from '../../ScriptManager';
+import axios from 'axios';
+import XML from 'xml.one';
+
+const InterlinearColumnStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        outputField: {
+            fontSize: "55%",
+            minHeight: "12vh"
+        }
+    })
+);
 
 function InterlinearColumn() {
+    const classes = InterlinearColumnStyles()
 
     const displayResult = () => {
-        var location = document.URL;
+        var location = document.URL.replace('#/', '/');
 
-        var xml = loadXML("xmlLocation");
-        var xsl = loadXML(location + "xml2LeipzigLITE.xsl");
-        
-        if (document.implementation && document.implementation.createDocument)
-        {
-            var xsltProcessor = new XSLTProcessor();
-            xsltProcessor.importStylesheet(xsl);
-            var result = xsltProcessor.transformToFragment(xml, document);
-            var outputDiv = document.getElementsByClassName("OutputField")[0];
-            outputDiv.innerHTML = "";
-            outputDiv.appendChild(result);
-        }
-    }
+        axios.get(location + "flextext/IcelandicExample.flextext").then((xml) => {
+            axios.get(location + "xml2LeipzigLITE2.xsl").then((xsl) => 
+            {
+                var parsedXML = XML.parse(xml.data);
+                var parsedXSL = XML.parse(xsl.data);
 
-    const tempDisplay = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        document.getElementsByClassName("OutputField")[0].innerHTML = event.target.value;
+                var html = XML.transform(parsedXML, parsedXSL);
+
+                var outputField = document.getElementsByClassName(classes.outputField)[0];
+                
+                outputField.innerHTML = html.documentElement.innerHTML;
+            })
+
+        });
     }
 
     return (
@@ -43,7 +52,7 @@ function InterlinearColumn() {
                         rows={4}
                         fullWidth
                         inputProps={{ 'aria-label': 'naked' }}
-                        onChange={tempDisplay}
+                        onChange={displayResult}
                     />
                 </CardContent>
             </Card>
@@ -53,7 +62,7 @@ function InterlinearColumn() {
                     <Typography>
                         <Translate id="interlinearDisplay.output" />
                     </Typography>
-                    <div className='OutputField'/>
+                    <div className={classes.outputField}/>
                 </CardContent>
             </Card>
             <Button> <Translate id="interlinearDisplay.copy"/> </Button>

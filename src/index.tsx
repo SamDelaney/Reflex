@@ -30,15 +30,13 @@ const localizeInit = {
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <LocalizeProvider initialize={localizeInit}>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
-      </LocalizeProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <LocalizeProvider initialize={localizeInit}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+    </LocalizeProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
