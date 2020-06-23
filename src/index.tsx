@@ -17,25 +17,29 @@ export const localizedLanguages = [
   { name: "Français", code: "fr" }
 ];
 
+//check for default browser, resort to English if none found
+const defaultLang = localizedLanguages.find(l => l.code === navigator.language) !== undefined
+    ? navigator.language
+    : "en";
+
 const localizeInit = {
   languages: localizedLanguages,
   translation: translations,
   options: {
     renderToStaticMarkup,
     defaultLanguage:
-      localizedLanguages.find(l => l.code === navigator.language) !== undefined
-        ? navigator.language
-        : "en"
+      //check for saved language, then default
+      localStorage.getItem("language") || defaultLang 
   }
 };
 
 ReactDOM.render(
   <Provider store={store}>
-    <LocalizeProvider initialize={localizeInit}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-    </LocalizeProvider>
+    <PersistGate loading={null} persistor={persistor}>
+      <LocalizeProvider initialize={localizeInit}>
+        <App />
+      </LocalizeProvider>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

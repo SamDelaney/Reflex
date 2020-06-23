@@ -19,8 +19,8 @@ const InterlinearColumnStyles = makeStyles((theme: Theme) =>
 function InterlinearColumn() {
     const classes = InterlinearColumnStyles();
 
-    const displayResult = () => {
-        var location = document.URL.replace('#/', '/');
+    const _displayResult = () => {
+        var location = document.URL.replace('#/', '/'); //replace made necessary by HashRouter
 
         axios.get(location + "flextext/IcelandicExample.flextext").then((xml) => {
             axios.get(location + "xml2LeipzigLITE2.xsl").then((xsl) => 
@@ -52,7 +52,7 @@ function InterlinearColumn() {
                         rows={4}
                         fullWidth
                         inputProps={{ 'aria-label': 'naked' }}
-                        onChange={displayResult}
+                        onChange={_displayResult}
                     />
                 </CardContent>
             </Card>

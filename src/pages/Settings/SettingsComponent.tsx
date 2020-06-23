@@ -1,8 +1,9 @@
 import React from 'react';
 import { Paper, Theme, makeStyles, createStyles, FormControl, NativeSelect, FormLabel } from '@material-ui/core';
 import { Translate, withLocalize, LocalizeContextProps } from 'react-localize-redux';
-import { localizedLanguages } from "../index";
+import { localizedLanguages } from "../../index";
 
+//language state is unnecessary, but retained as a template for now
 interface SettingsState {
     language: string;
 }
@@ -25,13 +26,14 @@ function SettingsPage(props: LocalizeContextProps) {
         language: props.activeLanguage.code
     })
 
-    const handleChange = (event: React.ChangeEvent<{ name?: string; value: string }>) => {
+    const setLanguage = (event: React.ChangeEvent<{ name?: string; value: string }>) => {
         const name = event.target.name as keyof typeof state;
         setState({
           ...state,
           [name]: event.target.value,
         });
-        props.setActiveLanguage(event.target.value); //this calls before setState() completes
+        props.setActiveLanguage(event.target.value); //NOTE: this calls before setState() completes
+        localStorage.setItem('language', event.target.value);
       };
 
     return (
@@ -40,7 +42,7 @@ function SettingsPage(props: LocalizeContextProps) {
             
             <FormControl>
                 <FormLabel><Translate id={"settingsPage.language"} /></FormLabel>
-                <NativeSelect onChange={handleChange} inputProps={{name: 'language'}} value={state.language}>
+                <NativeSelect onChange={setLanguage} inputProps={{name: 'language'}} value={state.language}>
                     {localizedLanguages.map((lang) => {
                         return (
                             <option value={lang.code}>{lang.name}</option>
