@@ -1,41 +1,25 @@
 import React from 'react';
+import {useSelector, useDispatch,} from 'react-redux';
 
 import { Translate, withLocalize } from 'react-localize-redux';
 import { Container, FormControl, NativeSelect, FormHelperText, Button, Grid } from '@material-ui/core';
 
+import { DataSourceState } from './Reducer';
+import { StoreState } from '../../../rootReducer';
+import { addSource, selectSource } from './Actions';
 
-interface DataSourceState {
-    filename: string,
-    flextext: string
-}
-
-interface PickDataSourceState {
-    sources: DataSourceState[],
-    currentSource: string,
+export interface PickSourceDispatchProps {
+    addSource: (newSource: DataSourceState) => void;
 }
 
 function PickDataSource() {
 
-    const [state, setState] = React.useState<PickDataSourceState>({
-        sources: [
-            {
-                filename: "No Available Sources",
-                flextext: ""
-            },
-            {
-                filename: "otherfile",
-                flextext: ""
-            }
-        ],
-        currentSource: "No Available Sources"
-    });
+    const pickSourceState = useSelector((state: StoreState) => state.picksource);
+    const dispatch = useDispatch();
 
     const _selectSource = (event: React.ChangeEvent<{value: string}>) => {
-        setState({
-          ...state,
-          currentSource: event.target.value
-        });
-      };
+        dispatch(selectSource(event.target.value));
+    };
 
     const _addSource = (event: React.ChangeEvent<HTMLInputElement>) => {
         try {
@@ -57,13 +41,7 @@ function PickDataSource() {
 
             //define action to take after file has been read
             fr.onload = () => {
-                let sources = state.sources;
-                sources.push({filename: file.name, flextext: fr.result as string});
-                setState({
-                    ...state,
-                    currentSource: file.name,
-                    sources
-                });
+                dispatch(addSource({filename: file.name, flextext: fr.result as string}));
             };
 
             //read file
@@ -80,13 +58,13 @@ function PickDataSource() {
                 <Grid item xs={6}>
             <FormControl>
                 <NativeSelect
-                value={state.currentSource}
+                value={pickSourceState.currentSource}
                     onChange={_selectSource}
                     inputProps={{
                         name: 'currentSource'
                     }}
                     >
-                    {state.sources.map((source) => {
+                    {pickSourceState.sources.map((source: DataSourceState) => {
                         return <option value={source.filename}>{source.filename}</option>
                     })}
                 </NativeSelect>
