@@ -8,6 +8,7 @@ import { Translate, withLocalize } from 'react-localize-redux';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../../rootReducer';
+import PhraseFinder from '../../scripts/PhraseFinder';
 
 const InterlinearColumnStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -23,26 +24,33 @@ function InterlinearColumn() {
 
     const classes = InterlinearColumnStyles();
 
-    const _displayResult = () => {
+    const _displayResult = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         try {
+            var clipboard: string = e.target.value || "";
+            if (clipboard === "") {
+                return;
+            }
+
             var location = document.URL.replace('#/', '/'); //replace made necessary by HashRouter
-            const xml = store.picksource.sources.find(
+            const xmlSource = store.picksource.sources.find(
                 source => source.filename === store.picksource.currentSource)
                 ?.flextext;
 
-            if (typeof xml !== 'string')
+            if (typeof xmlSource !== 'string')
                 throw Error("File contents could not be read.");
 
             axios.get(location + "xml2LeipzigLITE2.xsl").then((xsl) => 
             {
                 var processor = new XSLTProcessor();
                 var parser = new DOMParser();
+                var phraseFinder = new PhraseFinder(xmlSource);
 
                 processor.importStylesheet(parser.parseFromString(xsl.data, "text/xml"));
 
-                var result = processor.transformToDocument(parser.parseFromString(xml, "text/xml"));
+                var result = processor.transformToDocument(parser.parseFromString(phraseFinder.getPhrase(clipboard), "text/xml"));
 
                 var outputField = document.getElementsByClassName(classes.outputField)[0];
+
                 outputField.innerHTML = result.documentElement.innerHTML;
             });
         }

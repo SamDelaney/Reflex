@@ -58,7 +58,7 @@ function PickDataSource() {
                 <Grid item xs={6}>
             <FormControl>
                 <NativeSelect
-                value={pickSourceState.currentSource}
+                    value={pickSourceState.currentSource}
                     onChange={_selectSource}
                     inputProps={{
                         name: 'currentSource'
