@@ -2,7 +2,11 @@
     "interlinearDisplay": {
         "output": ["Output", "Salida", "Production"],
         "input": ["Input", "Entrada", "Contribution"],
-        "copy": ["Copy to Clipboard", "Copiar al Portapapeles", "Copier dans le Presse-papier"]
+        "copy": ["Copy to Clipboard", "Copiar al Portapapeles", "Copier dans le Presse-papier"],
+        "copyMessages" : {
+            "error": ["Something went wrong", "Algo salió mal", "Quelque chose a mal tourné"],
+            "success": ["Phrase copied to clipboard", "Frase copiada al portapapeles", "Phrase copiée dans le presse-papiers"]
+        }
     },
     "pickDataSource": {
         "dataSource": ["Data Source", "Fuente de Datos", "La Source de Données"],
