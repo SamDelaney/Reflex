@@ -4,18 +4,17 @@ import {AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, createStyles
 import {Menu, AccountCircle, Settings, History, Assignment, Style} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-const drawerWidth = 240;
-
 const AppBarStyles = makeStyles((theme: Theme) => 
     createStyles({
         appBar: {
-            zIndex: theme.zIndex.drawer + 1,
+            position: "relative", //required for Chrome/Opera
+            zIndex: theme.zIndex.drawer + 1
         },
         title: {
             flexGrow: 1
         },
         drawer: {
-            width: drawerWidth
+            width: 240
         },
         menuButton: {
             marginRight: theme.spacing(2)

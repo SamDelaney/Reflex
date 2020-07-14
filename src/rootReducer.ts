@@ -1,10 +1,12 @@
 import {combineReducers, Reducer} from 'redux';
 import { localizeReducer, LocalizeState } from 'react-localize-redux';
+import pickSourceReducer, { PickSourceState} from './components/FEComponents/PickDataSource/Reducer';
 
 
 export interface StoreState {
     temp: TempState;
     localize: LocalizeState;
+    picksource: PickSourceState;
 }
 
 interface TempState {
@@ -34,7 +36,8 @@ export const tempReducer = (state: TempState | undefined, action: TempActions): 
 
 const rootReducer: Reducer<StoreState> = combineReducers<StoreState>({
   localize: localizeReducer,
-  temp: tempReducer
+  temp: tempReducer,
+  picksource: pickSourceReducer
 });
 
 export default rootReducer;

@@ -1,12 +1,107 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import PickDataSource from './PickDataSource';
-import { CardContent, Typography, InputBase } from '@material-ui/core';
+import PickDataSource from './PickDataSource/Component';
+import {Button, Container, Card, CardContent,  InputBase,
+    Typography, makeStyles, Theme, createStyles, Snackbar 
+} from '@material-ui/core';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { Translate, withLocalize } from 'react-localize-redux';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { StoreState } from '../../rootReducer';
+import PhraseFinder from '../../scripts/PhraseFinder';
+
+function Alert(props: AlertProps) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+interface ColumnLocalState {
+    open: boolean,
+    status: "success" | "error"
+}
+
+const InterlinearColumnStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        outputField: {
+            fontSize: "55%",
+            minHeight: "12vh"
+        }
+    })
+);
 
 function InterlinearColumn() {
+    const store = useSelector((state: StoreState) => state)
+    const [localState, setLocalState] = React.useState<ColumnLocalState>({open: false, status: "success"});
+
+    const classes = InterlinearColumnStyles();
+
+    const _displayResult = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        try {
+            var clipboard: string = e.target.value || "";
+            if (clipboard === "") {
+                return;
+            }
+
+            var location = document.URL.replace('#/', '/'); //replace made necessary by HashRouter
+            const xmlSource = store.picksource.sources.find(
+                source => source.filename === store.picksource.currentSource)
+                ?.flextext;
+
+            if (typeof xmlSource !== 'string')
+                throw Error("File contents could not be read.");
+
+            axios.get(location + "xml2LeipzigLITE2.xsl").then((xsl) => 
+            {
+                var processor = new XSLTProcessor();
+                var parser = new DOMParser();
+                var phraseFinder = new PhraseFinder(xmlSource);
+
+                processor.importStylesheet(parser.parseFromString(xsl.data, "text/xml"));
+
+                var result = processor.transformToDocument(parser.parseFromString(phraseFinder.getPhrase(clipboard), "text/xml"));
+
+                var outputField = document.getElementsByClassName(classes.outputField)[0];
+
+                outputField.innerHTML = result.documentElement.innerHTML;
+            });
+        }
+        catch(e) {
+            console.log(e.message);
+        }
+    }
+
+    const _copyOut = () => {
+        var outputField = document.getElementsByClassName(classes.outputField)[0];
+        var range = document.createRange();
+
+        range.selectNode(outputField);
+
+        try{
+            window.getSelection()?.addRange(range);
+            var success = document.execCommand('copy') ? "success" : "error";
+            setLocalState({
+                open: true,
+                status: success as "success" | "error"
+            });
+        }
+        catch {
+            setLocalState({
+                open: true,
+                status: "error"
+            });
+        }
+    }
+
+    const _closeSnackbar = (event?: React.SyntheticEvent, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+      
+        setLocalState({
+            open: false,
+            status: localState.status
+        });
+    }
+
     return (
         <Container maxWidth='sm'>
             <PickDataSource />
@@ -20,6 +115,7 @@ function InterlinearColumn() {
                         rows={4}
                         fullWidth
                         inputProps={{ 'aria-label': 'naked' }}
+                        onChange={_displayResult}
                     />
                 </CardContent>
             </Card>
@@ -29,10 +125,15 @@ function InterlinearColumn() {
                     <Typography>
                         <Translate id="interlinearDisplay.output" />
                     </Typography>
-                    <div className='OutputField'/>
+                    <div className={classes.outputField}/>
                 </CardContent>
             </Card>
-            <Button> <Translate id="interlinearDisplay.copy"/> </Button>
+            <Button onClick={_copyOut}> <Translate id="interlinearDisplay.copy"/> </Button>
+            <Snackbar open={localState.open} autoHideDuration={6000} onClose={_closeSnackbar}>
+                <Alert onClose={_closeSnackbar} severity={localState.status}>
+                    <Translate id={"interlinearDisplay.copyMessages." + localState.status}/>
+                </Alert>
+            </Snackbar>
         </Container>
     )
 }
