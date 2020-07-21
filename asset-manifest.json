@@ -1,22 +1,23 @@
 {
   "files": {
     "main.css": "/LITEr/static/css/main.cd22f453.chunk.css",
-    "main.js": "/LITEr/static/js/main.4d51ecc8.chunk.js",
-    "main.js.map": "/LITEr/static/js/main.4d51ecc8.chunk.js.map",
+    "main.js": "/LITEr/static/js/main.49e76ab7.chunk.js",
+    "main.js.map": "/LITEr/static/js/main.49e76ab7.chunk.js.map",
     "runtime-main.js": "/LITEr/static/js/runtime-main.62789470.js",
     "runtime-main.js.map": "/LITEr/static/js/runtime-main.62789470.js.map",
-    "static/js/2.7481a354.chunk.js": "/LITEr/static/js/2.7481a354.chunk.js",
-    "static/js/2.7481a354.chunk.js.map": "/LITEr/static/js/2.7481a354.chunk.js.map",
+    "static/js/2.259d9bf2.chunk.js": "/LITEr/static/js/2.259d9bf2.chunk.js",
+    "static/js/2.259d9bf2.chunk.js.map": "/LITEr/static/js/2.259d9bf2.chunk.js.map",
     "index.html": "/LITEr/index.html",
-    "precache-manifest.93dd4b33a58c804f07317d70ced93e6f.js": "/LITEr/precache-manifest.93dd4b33a58c804f07317d70ced93e6f.js",
+    "precache-manifest.3ca15ed6f4b28b88359eac45f3fd5286.js": "/LITEr/precache-manifest.3ca15ed6f4b28b88359eac45f3fd5286.js",
     "service-worker.js": "/LITEr/service-worker.js",
     "static/css/main.cd22f453.chunk.css.map": "/LITEr/static/css/main.cd22f453.chunk.css.map",
-    "static/js/2.7481a354.chunk.js.LICENSE.txt": "/LITEr/static/js/2.7481a354.chunk.js.LICENSE.txt"
+    "static/js/2.259d9bf2.chunk.js.LICENSE.txt": "/LITEr/static/js/2.259d9bf2.chunk.js.LICENSE.txt",
+    "static/media/InvertedHorizontal.png": "/LITEr/static/media/InvertedHorizontal.85852915.png"
   },
   "entrypoints": [
     "static/js/runtime-main.62789470.js",
-    "static/js/2.7481a354.chunk.js",
+    "static/js/2.259d9bf2.chunk.js",
     "static/css/main.cd22f453.chunk.css",
-    "static/js/main.4d51ecc8.chunk.js"
+    "static/js/main.49e76ab7.chunk.js"
   ]
 }
