@@ -58,7 +58,7 @@ function LITEAppBar() {
                             component={Link}
                             to="/"
                         >
-                            <img src={HorizontalLogo} height="50" />
+                            <img src={HorizontalLogo} height="50" alt="Reflex"/>
                         </Button>   
                     </div>
 
