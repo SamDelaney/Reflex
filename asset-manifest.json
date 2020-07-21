@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/reflex/static/css/main.cd22f453.chunk.css",
-    "main.js": "/reflex/static/js/main.1b1538bb.chunk.js",
-    "main.js.map": "/reflex/static/js/main.1b1538bb.chunk.js.map",
-    "runtime-main.js": "/reflex/static/js/runtime-main.fd4bdd28.js",
-    "runtime-main.js.map": "/reflex/static/js/runtime-main.fd4bdd28.js.map",
-    "static/js/2.259d9bf2.chunk.js": "/reflex/static/js/2.259d9bf2.chunk.js",
-    "static/js/2.259d9bf2.chunk.js.map": "/reflex/static/js/2.259d9bf2.chunk.js.map",
-    "index.html": "/reflex/index.html",
-    "precache-manifest.447b277d5fa02bcd70e43f91a7175e52.js": "/reflex/precache-manifest.447b277d5fa02bcd70e43f91a7175e52.js",
-    "service-worker.js": "/reflex/service-worker.js",
-    "static/css/main.cd22f453.chunk.css.map": "/reflex/static/css/main.cd22f453.chunk.css.map",
-    "static/js/2.259d9bf2.chunk.js.LICENSE.txt": "/reflex/static/js/2.259d9bf2.chunk.js.LICENSE.txt",
-    "static/media/InvertedHorizontal.png": "/reflex/static/media/InvertedHorizontal.85852915.png"
+    "main.css": "/Reflex/static/css/main.cd22f453.chunk.css",
+    "main.js": "/Reflex/static/js/main.0322cb13.chunk.js",
+    "main.js.map": "/Reflex/static/js/main.0322cb13.chunk.js.map",
+    "runtime-main.js": "/Reflex/static/js/runtime-main.e5df7114.js",
+    "runtime-main.js.map": "/Reflex/static/js/runtime-main.e5df7114.js.map",
+    "static/js/2.259d9bf2.chunk.js": "/Reflex/static/js/2.259d9bf2.chunk.js",
+    "static/js/2.259d9bf2.chunk.js.map": "/Reflex/static/js/2.259d9bf2.chunk.js.map",
+    "index.html": "/Reflex/index.html",
+    "precache-manifest.462db12812cd84db0b254c2cf3b55a1e.js": "/Reflex/precache-manifest.462db12812cd84db0b254c2cf3b55a1e.js",
+    "service-worker.js": "/Reflex/service-worker.js",
+    "static/css/main.cd22f453.chunk.css.map": "/Reflex/static/css/main.cd22f453.chunk.css.map",
+    "static/js/2.259d9bf2.chunk.js.LICENSE.txt": "/Reflex/static/js/2.259d9bf2.chunk.js.LICENSE.txt",
+    "static/media/InvertedHorizontal.png": "/Reflex/static/media/InvertedHorizontal.85852915.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.fd4bdd28.js",
+    "static/js/runtime-main.e5df7114.js",
     "static/js/2.259d9bf2.chunk.js",
     "static/css/main.cd22f453.chunk.css",
-    "static/js/main.1b1538bb.chunk.js"
+    "static/js/main.0322cb13.chunk.js"
   ]
 }
