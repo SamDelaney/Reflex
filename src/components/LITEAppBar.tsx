@@ -1,8 +1,10 @@
 import React from 'react';
 import { withLocalize, Translate } from 'react-localize-redux';
-import {AppBar, Toolbar, IconButton, Typography, makeStyles, Theme, createStyles, Drawer, List, ListItem, ListItemText, ListItemIcon, Divider} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, makeStyles, Theme, createStyles, Drawer, List, ListItem, ListItemText, ListItemIcon, Divider, Button} from '@material-ui/core';
 import {Menu, AccountCircle, Settings, History, Assignment, Style} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+
+import HorizontalLogo from '../resources/InvertedHorizontal.png';
 
 const AppBarStyles = makeStyles((theme: Theme) => 
     createStyles({
@@ -49,10 +51,16 @@ function LITEAppBar() {
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(!state.drawerOpen)}>
                         <Menu />
                     </IconButton>
-
-                    <Typography variant="h6" color="inherit" className={classes.title}>
-                        LITEr
-                    </Typography>
+                    <div className={classes.title}>
+                        <Button
+                            aria-label="settings"
+                            color="inherit"
+                            component={Link}
+                            to="/"
+                        >
+                            <img src={HorizontalLogo} height="50" />
+                        </Button>   
+                    </div>
 
                     <IconButton
                         aria-label="account"

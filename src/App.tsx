@@ -7,18 +7,32 @@ import './App.css';
 import { HashRouter, Route } from 'react-router-dom';
 import LITEAppBar from './components/LITEAppBar';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#6B4060"
+    }
+  }
+})
+
 function AppRouter() {
   return (
     <>
-      <HashRouter basename='/'>
-        <LITEAppBar />
-        <div className='App-header'>
-          <Route path="/" exact component = {MainPage} />
-          <Route path="/settings" exact component = {SettingsPage} />
-          <Route path="/history" exact component = {History} />
-          <Route path="/styles" exact component = {FormatStyles} />
-        </div>
-      </HashRouter>
+      <ThemeProvider theme={theme}>
+        <HashRouter basename='/'>
+          <LITEAppBar />
+          <div className='App-header'>
+            <Route path="/" exact component = {MainPage} />
+            <Route path="/settings" exact component = {SettingsPage} />
+            <Route path="/history" exact component = {History} />
+            <Route path="/styles" exact component = {FormatStyles} />
+          </div>
+        </HashRouter>
+      </ThemeProvider>
     </>
   )
 }
