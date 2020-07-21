@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "26024d376aab5ac19d0c7f449b4400cf",
+    "revision": "fe03462063fe8daba3afe8f8a6773109",
     "url": "/LITEr/index.html"
   },
   {
