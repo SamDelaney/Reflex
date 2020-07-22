@@ -46,47 +46,55 @@
 					    margin:0;
 					    background-color:yellow;
 					}
-					td{
+					<!-- td{
 					    height:1em;
 					    vertical-align:bottom;
 					    white-space:nowrap;
-					}
-					span{
+					} -->
+
+					<!-- span{
 					    display:inline-block;
 					    vertical-align:top;
-					}
-					.itx_Frame_Number{
+					} -->
+
+					<!-- .itx_Frame_Number{
 					    font:normal 1em serif;
 					    display:inline;
-					}
-					.itxBaseline{
+					} -->
+
+					<!-- .itxBaseline{
 					    font-style:italic;
-					}
+					} -->
 					
-					.lexMorpheme{
+					<!-- .lexMorpheme{
 					    font-style:italic;
-					}
+					} -->
 					
-					.lexGloss{
+					<!-- .lexGloss{
 					    font-size:.9em;
 					    color:maroon;
-					}
+					} -->
 					
-					.itxFreeTranslation{
+					<!-- .itxFreeTranslation{
 					    font:normal
-					}
-					.itxNotes{
+					} -->
+
+					<!-- .itxNotes{
 					    margin-left:1em;
 					    color:mediumblue;
 					    font:normal 1em serif;
-					}
+					} -->
+
 					sub,
 					sup{
 					    display:none;
 					}
+
 					.hidden{
 					    display:none;
-					}</style>
+					}
+					
+					</style>
 				<title> &#160; </title>
 			</head>
 			<body>
@@ -146,8 +154,8 @@
 				<xsl:if test="$pInclude_language='first'">
 					<tr class="LanguageNameFirstLine">
 						<!--Segment number-->
-						<td>
-							<span class="itx_Frame_Number"> (<xsl:value-of select="$vSegmentNumber"
+						<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
+							<span style="display:inline-block; vertical-align:top; font:normal 1em serif; display:inline;"> (<xsl:value-of select="$vSegmentNumber"
 								/>) </span>
 						</td>
 						<xsl:variable name="vNumWords">
@@ -165,8 +173,8 @@
 				<xsl:if test="$pInclude_source_reference='first'">
 					<tr class="SourceReferenceFirstLine">
 						<!--Segment number-->
-						<td>
-							<span class="itx_Frame_Number"> (<xsl:value-of select="$vSegmentNumber"
+						<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
+							<span style="display:inline-block; vertical-align:top; font:normal 1em serif; display:inline;"> (<xsl:value-of select="$vSegmentNumber"
 							/>) </span>
 						</td>
 						<xsl:variable name="vNumWords">
@@ -182,11 +190,11 @@
 					</tr>
 				</xsl:if>
 				<xsl:if test="$pInclude_baseline='1'">
-					<tr class="itxBaseline">
+					<tr style="font-style:italic;">
 						<!--Segment number-->
-						<td>
+						<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 							<xsl:if test="$pInclude_language='not(first)'">
-								<span class="itx_Frame_Number"> (<xsl:value-of
+								<span style="display:inline-block; vertical-align:top; font:normal 1em serif; display:inline;"> (<xsl:value-of
 										select="$vSegmentNumber"/>) </span>
 							</xsl:if>
 						</td>
@@ -195,7 +203,7 @@
 								select="count(words/word/item[@type='txt' or @type='punct'])"/>
 						</xsl:variable>
 						<xsl:for-each select="words/word/item[@type='txt' or @type='punct'] ">
-							<td class="itxBaseline">
+							<td style="font-style:italic;">
 								<xsl:value-of select="text()"/>
 							</td>
 						</xsl:for-each>
@@ -203,12 +211,12 @@
 				</xsl:if>
 				<!-- Lexemes row-->
 				<!-- Note that the affix dashes are included in the morph, whereas in the gloss and the POS they are not-->
-				<tr class="lexMorpheme">
+				<tr style="font-style:italic;">
 					<!--Space in cell in column where the example number is housed-->
-					<td>
+					<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 						<xsl:if
 							test="$pInclude_baseline=not('1') or $pInclude_language='not(first)'">
-							<span class="lexMorphemeFrameNumber"> (<xsl:value-of
+							<span style="display:inline-block; vertical-align:top;" class="lexMorphemeFrameNumber"> (<xsl:value-of
 									select="$vSegmentNumber"/>) </span>
 						</xsl:if>
 					</td>
@@ -220,12 +228,12 @@
 						<!--Want to include punctuation in the morpheme line in case the user decides to hide the baseline, which is standard Leipzig practice-->
 						<xsl:choose>
 							<xsl:when test="item[@type='punct']">
-								<td>
+								<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 									<xsl:value-of select="item/text()"/>
 								</td>
 							</xsl:when>
 							<xsl:otherwise>
-								<td>
+								<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 									<xsl:for-each select="morphemes/morph">
 										<!-- If the morpheme count is greater than 1 AND the morpheme type is root or stem AND the preceding morpheme was a root or a stem, then put an underscore before the morpheme
 										In other words, if a word is made up of mutilple roots or stems, we need a way to separate these other than the hyphen.-->
@@ -240,15 +248,15 @@
 					</xsl:for-each>
 				</tr>
 				<!-- LexGloss row-->
-				<tr class="lexGloss">
+				<tr style="font-size:.9em; color:maroon;">
 					<!--Space in cell in column where the example number is housed-->
-					<td>&#32;</td>
+					<td style="height:1em; vertical-align:bottom; white-space:nowrap;">&#32;</td>
 					<xsl:variable name="vNumWords">
 						<xsl:value-of select="count(words/word/item[@type='txt' or @type='punct'])"
 						/>
 					</xsl:variable>
 					<xsl:for-each select="words/word">
-						<td>
+						<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 							<xsl:for-each select="morphemes/morph">
 								<xsl:if
 									test="@type='suffix' or @type='suffixing interfix' or @type='infix'">
@@ -311,9 +319,9 @@
 				</xsl:variable>
 				<!-- If Free translations exist for the segment then create Free translation row-->
 				<xsl:if test="item[@type='gls']">
-					<tr class="itxFreeTranslation">
+					<tr style="font:normal">
 						<td/>
-						<td>
+						<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 							<xsl:attribute name="colspan">
 								<xsl:value-of select="$vNumWords"/>
 							</xsl:attribute> &apos;<xsl:value-of select="item[@type='gls']"/>&apos;
@@ -336,7 +344,7 @@
 					<xsl:if test="item[@type='lit']">
 						<tr class="itxLiteralTranslation">
 							<td/>
-							<td>
+							<td style="height:1em; vertical-align:bottom; white-space:nowrap;">
 								<xsl:attribute name="colspan">
 									<xsl:value-of select="$vNumWords"/>
 								</xsl:attribute> (Lit: &apos;<xsl:value-of
@@ -361,7 +369,7 @@
 		<xsl:if test="$pInclude_notes='1'">
 			<xsl:if test="item[@type='note']">
 				<xsl:for-each select="item[@type='note']">
-					<p class="itxNotes"> Note: <xsl:value-of select="."/>
+					<p style="margin-left:1em; color:mediumblue; font:normal 1em serif;"> Note: <xsl:value-of select="."/>
 					</p>
 				</xsl:for-each>
 			</xsl:if>
