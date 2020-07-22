@@ -1,44 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./src/resources/HorizontalLogo.png)
+## A Reflexive Flextext Refactoring Tool
+This webtool allows users to easily transform and transfer interlinear texts from SIL's Fieldworks Language Explorer into word processing tools in a format which should be accepted by journals and publishing companies.
 
-## Available Scripts
+### Getting Started
+Before you can use Reflex, it needs access to your language data. 
+ - Get a .flextext file of the texts you'll be using.
+   - In FieldWorks, navigate to `Texts & Words` and select `Interlinear Texts`.
+   - Then, open the `File` menu in the top left corner and click `Export Interlinear`.
+   - Select the line which has the extension 'FLEXTEXT' and click Export.
+   - Select the texts you want to be able to access and click OK.
+   - Choose a location to store your .flextext file.
+ - Upload the .flextext file to Reflex
+    - In Reflex, click `UPLOAD DATA SOURCE`.
+    - Select the file you want to upload and click Open to upload it. \
+    ( This file is now added to a list of available .flextext data sources which can be accessed in the `Data Source` dropdown. )
 
-In the project directory, you can run:
+Now that it has your interlinear texts, tell Reflex which phrase you want by putting text into the `Input` field.
+   - I recommend copying and pasting the data directly from the Fieldworks `Interlinear Texts`, from either the `Gloss`, `Analyze`, or `Print View` tabs.
 
-### `npm start`
+When you're satisfied with the content of the `Output` field, click `COPY TO CLIPBOARD`.
+ - You should see a pop-up notification of success.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Now go to your supported word processor and paste your formatted phrase into your document. Congratulations!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Having problems? Feel free to create an issue [here](https://github.com/samdelaney/Reflex/issues). Don't be a stranger!
 
-### `npm test`
+### Supported Word Processors
+ - Microsoft Word
+ - Google Docs (sub-optimally)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+(If you're using Google Docs, you'll have better results if you paste without formatting using `ctrl`+`shift`+`v`. I intend to improve this in the future.)
 
-### `npm run build`
+### Planned Support
+ - Google Docs (improved)
+ - LaTeX
+ - XLingPaper
+ - LibreOffice
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Supported Browsers
+ - Google Chrome
+ - Mozilla Firefox
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This tool is based heavily on Larry Hayashi's ["Linguistic Interlinear Text Exampler"](https://sites.google.com/canil.ca/tutorials/fieldworks/litexampler) XSLT Script and [our joint application](github.com/samdelaney/LITE) of the same name. Many thanks to him for his work and mentorship.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The tool is built in Typescript and React, making use of several well-known libraries such as Material-UI and Redux, and hosted right [here](https://samdelaney.github.io/Reflex) on Github Pages. If you'd like to contribute to this tool, feel free to shoot me a message here, and check out [the CRA scripts I use in development](docs/scripts.md).
