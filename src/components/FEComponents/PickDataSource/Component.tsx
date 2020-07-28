@@ -8,10 +8,6 @@ import { DataSourceState } from './Reducer';
 import { StoreState } from '../../../rootReducer';
 import { addSource, selectSource } from './Actions';
 
-export interface PickSourceDispatchProps {
-    addSource: (newSource: DataSourceState) => void;
-}
-
 function PickDataSource() {
 
     const pickSourceState = useSelector((state: StoreState) => state.picksource);

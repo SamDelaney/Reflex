@@ -21,13 +21,10 @@ export const defaultState: PickSourceState = {
 }
 
 const pickSourceReducer = (
-    state: PickSourceState | undefined,
+    state = defaultState,
     action: PickSourceAction
 ): PickSourceState => 
 {
-    if(typeof state === 'undefined')
-        return defaultState;
-        
     switch(action.type) {
         case PickSourceActions.SELECT_SOURCE:
             state.currentSource = action.payload;

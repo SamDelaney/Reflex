@@ -57,6 +57,15 @@ function InterlinearColumn() {
 
                 processor.importStylesheet(parser.parseFromString(xsl.data, "text/xml"));
 
+                processor.setParameter("", "pInclude_language", store.referenceselect.languageNameSelect.inclusion);
+                processor.setParameter("", "pLanguage_name", store.referenceselect.languageNameSelect.name);
+
+                processor.setParameter("", "pInclude_source_reference", store.referenceselect.dataSourceRefSelect.inclusion);
+                processor.setParameter("", "pSource_reference", store.referenceselect.dataSourceRefSelect.name);
+
+                // processor.setParameter("", "pInclude_baseline", 1);
+
+
                 var result = processor.transformToDocument(parser.parseFromString(phraseFinder.getPhrase(clipboard), "text/xml"));
 
                 var outputField = document.getElementsByClassName(classes.outputField)[0];
