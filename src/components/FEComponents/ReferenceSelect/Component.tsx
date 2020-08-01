@@ -3,8 +3,9 @@ import {useSelector, useDispatch,} from 'react-redux';
 
 import { Translate, withLocalize, LocalizeContextProps } from 'react-localize-redux';
 import { Container, RadioGroup, Radio, FormControlLabel, TextField, Grid, FormLabel} from '@material-ui/core';
+import {Autocomplete} from '@material-ui/lab';
 
-import { RefSelectState, ComponentName, ReferenceInclusion } from './Reducer';
+import { ComponentName, ReferenceInclusion } from './Reducer';
 import { StoreState } from '../../../rootReducer';
 import { setName, setInclusion } from './Actions';
 
@@ -14,7 +15,7 @@ interface ReferenceSelectProps {
 
 function ReferenceSelect(props:  ReferenceSelectProps & LocalizeContextProps) {
 
-    const refSelectState = useSelector((state: StoreState) => state.referenceselect);
+    const refSelectState = useSelector((state: StoreState) => state.referenceselect[props.selectLabel]);
     const dispatch = useDispatch();
 
     const _setInclusion = (event: React.ChangeEvent<{value: string}>) => {
@@ -30,14 +31,16 @@ function ReferenceSelect(props:  ReferenceSelectProps & LocalizeContextProps) {
             <FormLabel><Translate id={"referenceSelect." + props.selectLabel} /> </FormLabel>
             <Grid container>
                 <Grid item xs={6}>
-                    <RadioGroup onChange={_setInclusion}>
+                    <RadioGroup onChange={_setInclusion} defaultValue={refSelectState.inclusion}>
                         <FormControlLabel value="first" control={<Radio />} label={<Translate id='referenceSelect.firstOption'/>} />
-                        <FormControlLabel value="right" control={<Radio />} label={<Translate id='referenceSelect.rightOption'/>} />
+                        <FormControlLabel value="right" disabled control={<Radio />} label={<Translate id='referenceSelect.rightOption'/>} />
                         <FormControlLabel value="none" control={<Radio />} label={<Translate id='referenceSelect.noneOption'/>} />
                     </RadioGroup>
                 </Grid>
                 <Grid item xs={6}> 
-                    <TextField label={<Translate id="referenceSelect.name"/>} onChange={_setName}/>
+                    <Autocomplete freeSolo defaultValue={refSelectState.name} options={refSelectState.names.map((name) => name)} renderInput={(params) => (
+                        <TextField {...params} onBlur={_setName} label={<Translate id="referenceSelect.name"/>}/>
+                    )}/>
                 </Grid>
             </Grid>
         </Container>
