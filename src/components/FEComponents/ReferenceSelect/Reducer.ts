@@ -15,7 +15,7 @@ export interface RefSelectState {
     dataSourceRefSelect: ComponentState
 }
 
-export const defaultState: RefSelectState =  {
+const defaultState: RefSelectState =  {
     languageNameSelect: 
     {
             inclusion: "none",

@@ -15,7 +15,7 @@ interface SetNameAction {
     payload: { origin: ComponentName, name: string }
 }
 
-export function setName(name: string, origin: ComponentName) {
+export function setName(name: string, origin: ComponentName): SetNameAction {
     return {
         type: ReferenceSelectActions.SET_NAME,
         payload: {origin, name}

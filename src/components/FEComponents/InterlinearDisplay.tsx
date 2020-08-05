@@ -79,6 +79,9 @@ function InterlinearColumn() {
 
                 // processor.setParameter("", "pInclude_baseline", 1);
 
+                processor.setParameter("", "pIndicate_ungrammatical", store.switches.ungram ? 1 : 0);
+                processor.setParameter("", "pInclude_notes", store.switches.notes ? 1 : 0);
+                processor.setParameter("", "pInclude_literal_trans", store.switches.lit ? 1 : 0);
 
                 var result = processor.transformToDocument(parser.parseFromString(phraseFinder.getPhrase(clipboard), "text/xml"));
 
