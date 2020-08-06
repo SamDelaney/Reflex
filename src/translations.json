@@ -25,8 +25,8 @@
         "rightOption": ["On Right", "A la derecha", "Sur la droite"]
     },
     "FESwitches": {
-        "literalTranslation": ["Include Literal Translation", "Incluir traducción literal", "Inclure la traduction littérale"],
-        "notes": ["Include Notes", "Incluir notas", "Inclure des notes"],
+        "literalTranslation": ["Literal Translation", "Traducción literal", "Traduction littérale"],
+        "notes": ["Notes", "Notas", "Notes"],
         "ungrammatical": ["Mark Ungrammatical", "Marca no gramatical", "Marquer non grammatical"] 
     },
     "menuDrawer": {

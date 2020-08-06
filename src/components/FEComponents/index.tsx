@@ -1,8 +1,8 @@
 import PickSourceComponent from './PickDataSource/Component';
 import PickFormatStyle from './PickFormatStyle';
-import ReferenceSelect from './ReferenceSelect';
+import ReferenceSelect from './ReferenceSelect/Component';
 import InterlinearDisplay from './InterlinearDisplay';
-import FESwitches from './FESwitches';
+import FESwitches from './Switches/Component';
 
 export {InterlinearDisplay};
 export {ReferenceSelect};

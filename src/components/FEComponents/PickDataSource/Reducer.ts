@@ -21,20 +21,25 @@ export const defaultState: PickSourceState = {
 }
 
 const pickSourceReducer = (
-    state: PickSourceState | undefined,
+    state = defaultState,
     action: PickSourceAction
 ): PickSourceState => 
 {
-    if(typeof state === 'undefined')
-        return defaultState;
-        
     switch(action.type) {
         case PickSourceActions.SELECT_SOURCE:
+
             state.currentSource = action.payload;
+
             return {...state};
+            
         case PickSourceActions.ADD_SOURCE:
+
             state.sources.push(action.payload);
             state.currentSource = action.payload.filename;
+
+            if(state.sources.length === 2 && state.sources[0].filename === "No Available Sources")
+                state.sources.shift();
+
             return {...state};
         default:
             return state;

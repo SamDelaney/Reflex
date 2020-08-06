@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PickDataSource from './PickDataSource/Component';
 import {Button, Container, Card, CardContent,  InputBase,
     Typography, makeStyles, Theme, createStyles, Snackbar 
@@ -16,7 +16,14 @@ function Alert(props: AlertProps) {
 
 interface ColumnLocalState {
     open: boolean,
-    status: "success" | "error"
+    status: "success" | "error",
+    input: string
+}
+
+const defaultState: ColumnLocalState = {
+    open: false, 
+    status: "success", 
+    input:""
 }
 
 const InterlinearColumnStyles = makeStyles((theme: Theme) =>
@@ -30,13 +37,20 @@ const InterlinearColumnStyles = makeStyles((theme: Theme) =>
 
 function InterlinearColumn() {
     const store = useSelector((state: StoreState) => state)
-    const [localState, setLocalState] = React.useState<ColumnLocalState>({open: false, status: "success"});
+    const [localState, setLocalState] = React.useState<ColumnLocalState>(defaultState);
 
     const classes = InterlinearColumnStyles();
 
     const _displayResult = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setLocalState(
+            {...localState, input: e.target.value}
+        )
+    }
+
+    useEffect(() => {
+        console.log(JSON.stringify(store.referenceselect));
+        var clipboard: string = localState.input || "";
         try {
-            var clipboard: string = e.target.value || "";
             if (clipboard === "") {
                 return;
             }
@@ -57,6 +71,18 @@ function InterlinearColumn() {
 
                 processor.importStylesheet(parser.parseFromString(xsl.data, "text/xml"));
 
+                processor.setParameter("", "pInclude_language", store.referenceselect.languageNameSelect.inclusion);
+                processor.setParameter("", "pLanguage_name", store.referenceselect.languageNameSelect.name);
+
+                processor.setParameter("", "pInclude_source_reference", store.referenceselect.dataSourceRefSelect.inclusion);
+                processor.setParameter("", "pSource_reference", store.referenceselect.dataSourceRefSelect.name);
+
+                // processor.setParameter("", "pInclude_baseline", 1);
+
+                processor.setParameter("", "pIndicate_ungrammatical", store.switches.ungram ? 1 : 0);
+                processor.setParameter("", "pInclude_notes", store.switches.notes ? 1 : 0);
+                processor.setParameter("", "pInclude_literal_trans", store.switches.lit ? 1 : 0);
+
                 var result = processor.transformToDocument(parser.parseFromString(phraseFinder.getPhrase(clipboard), "text/xml"));
 
                 var outputField = document.getElementsByClassName(classes.outputField)[0];
@@ -67,7 +93,7 @@ function InterlinearColumn() {
         catch(e) {
             console.log(e.message);
         }
-    }
+    });
 
     const _copyOut = () => {
         var outputField = document.getElementsByClassName(classes.outputField)[0];
@@ -79,14 +105,16 @@ function InterlinearColumn() {
             window.getSelection()?.addRange(range);
             var success = document.execCommand('copy') ? "success" : "error";
             setLocalState({
+                ...localState,
                 open: true,
-                status: success as "success" | "error"
+                status: success as "success" | "error",
             });
         }
         catch {
             setLocalState({
+                ...localState,
                 open: true,
-                status: "error"
+                status: "error",
             });
         }
     }
@@ -97,8 +125,8 @@ function InterlinearColumn() {
         }
       
         setLocalState({
-            open: false,
-            status: localState.status
+            ...localState,
+            open: false
         });
     }
 
