@@ -77,7 +77,7 @@ function InterlinearColumn() {
                 processor.setParameter("", "pInclude_source_reference", store.referenceselect.dataSourceRefSelect.inclusion);
                 processor.setParameter("", "pSource_reference", store.referenceselect.dataSourceRefSelect.name);
 
-                // processor.setParameter("", "pInclude_baseline", 1);
+                processor.setParameter("", "pInclude_baseline", store.formatstyles.styles[store.formatstyles.currentStyle].baseline ? 1 : 0);
 
                 processor.setParameter("", "pIndicate_ungrammatical", store.switches.ungram ? 1 : 0);
                 processor.setParameter("", "pInclude_notes", store.switches.notes ? 1 : 0);
