@@ -41,6 +41,7 @@ const pickSourceReducer = (
                 state.sources.shift();
 
             return {...state};
+            
         default:
             return state;
     }
