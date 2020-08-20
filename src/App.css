@@ -11,12 +11,8 @@
   font-size: calc(10px + 2vmin);
 }
 
-.OutputField {
-  min-height: 10vh;
-}
-
 .MainRow {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: row;
 }

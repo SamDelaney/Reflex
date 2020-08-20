@@ -8,10 +8,6 @@ import { StyleState } from './FSReducer';
 import { selectStyleAction } from './FSActions';
 
 
-interface PickFormatStyleState {
-    formatStyle: string;
-}
-
 function PickFormatStyle() {
 
     const pickFSState = useSelector((state: StoreState) => state.formatstyles);

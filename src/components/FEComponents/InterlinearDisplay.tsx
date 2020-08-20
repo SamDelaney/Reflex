@@ -28,9 +28,14 @@ const defaultState: ColumnLocalState = {
 
 const InterlinearColumnStyles = makeStyles((theme: Theme) =>
     createStyles({
+        container: {
+            width: "80%"
+        },
         outputField: {
             fontSize: "55%",
-            minHeight: "12vh"
+            minHeight: "14vh",
+            display:"block",
+            overflow: "auto"
         }
     })
 );
@@ -131,7 +136,7 @@ function InterlinearColumn() {
     }
 
     return (
-        <Container maxWidth='sm'>
+        <Container className={classes.container}>
             <PickDataSource />
             <Card variant='outlined'>
                 <CardContent>

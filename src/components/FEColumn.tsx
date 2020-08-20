@@ -8,7 +8,7 @@ import { ReferenceSelect, PickFormatStyle, FESwitches} from './FEComponents';
 
 function FEColumn() {
     return (
-        <Container maxWidth='sm'>
+        <Container maxWidth="xs">
             <PickFormatStyle />
             <ReferenceSelect selectLabel={"languageNameSelect"}/>
             <ReferenceSelect selectLabel={"dataSourceRefSelect"}/>

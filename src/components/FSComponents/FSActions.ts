@@ -1,5 +1,3 @@
-import {StyleState} from './FSReducer';
-
 export enum FSActions {
     SELECT_STYLE = "SELECT_STYLE"
 }
