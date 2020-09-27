@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import PickDataSource from './PickDataSource/Component';
 import {Button, Container, Card, CardContent,  InputBase,
-    Typography, makeStyles, Theme, createStyles, Snackbar 
+    Typography, makeStyles, createStyles, Snackbar, IconButton, Grid 
 } from '@material-ui/core';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+import { Input, FilterNone } from '@material-ui/icons'
 import { Translate, withLocalize } from 'react-localize-redux';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -26,7 +27,7 @@ const defaultState: ColumnLocalState = {
     input:""
 }
 
-const InterlinearColumnStyles = makeStyles((theme: Theme) =>
+const InterlinearColumnStyles = makeStyles(() =>
     createStyles({
         container: {
             width: "80%"
@@ -36,6 +37,12 @@ const InterlinearColumnStyles = makeStyles((theme: Theme) =>
             minHeight: "14vh",
             display:"block",
             overflow: "auto"
+        },
+        cardheader: {
+            maxHeight: "1ex"
+        },
+        headerbutton: {
+            marginTop: -20
         }
     })
 );
@@ -124,6 +131,12 @@ function InterlinearColumn() {
         }
     }
 
+    const _copyIn = () => {
+        var inputField = document.getElementsByClassName("inputField")[0];
+        
+        navigator.clipboard.readText().then(contents => inputField.innerHTML = contents);
+    }
+
     const _closeSnackbar = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
             return;
@@ -135,29 +148,62 @@ function InterlinearColumn() {
         });
     }
 
+    interface CardHeaderProps {
+        type: "input" | "output"
+    }
+
+    const CardHeader = (props: CardHeaderProps) => {
+
+        const Title = () => (
+        <Typography >
+            <Translate id={"interlinearDisplay." + props.type} />
+        </Typography>);
+
+        var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+        if (isFirefox && props.type === "input") return (<Title/>);
+
+        return (
+        <Grid justify="space-between" container className={classes.cardheader}>
+            <Grid item>
+                <Title />
+            </Grid>
+            <Grid item>
+                <IconButton className={classes.headerbutton} onClick={props.type === "input" ? _copyIn : _copyOut }>
+                    <HeaderIcon type={props.type}/>
+                </IconButton>
+            </Grid>
+        </Grid>
+    );}
+
+    const HeaderIcon = (props: CardHeaderProps) => {
+        if(props.type === "input")
+            {
+                return (<Input fontSize="small"/>);
+            }
+        else
+            return (<FilterNone fontSize="small"/>);
+    }
+
     return (
         <Container className={classes.container}>
             <PickDataSource />
             <Card variant='outlined'>
                 <CardContent>
-                    <Typography>
-                        <Translate id="interlinearDisplay.input" />
-                    </Typography>
+                    <CardHeader type="input"/>
                     <InputBase
                         multiline
                         rows={4}
                         fullWidth
                         inputProps={{ 'aria-label': 'naked' }}
                         onChange={_displayResult}
+                        className={"inputField"}
                     />
                 </CardContent>
             </Card>
 
             <Card variant='outlined'>
                 <CardContent>
-                    <Typography>
-                        <Translate id="interlinearDisplay.output" />
-                    </Typography>
+                    <CardHeader type="output"/>
                     <div className={classes.outputField}/>
                 </CardContent>
             </Card>

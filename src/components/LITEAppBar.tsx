@@ -53,7 +53,7 @@ function LITEAppBar() {
                     </IconButton>
                     <div className={classes.title}>
                         <Button
-                            aria-label="settings"
+                            aria-label="home page"
                             color="inherit"
                             component={Link}
                             to="/"
@@ -68,15 +68,15 @@ function LITEAppBar() {
                     >
                         <AccountCircle />
                     </IconButton>
-                        <IconButton
-                            edge="end"
-                            aria-label="settings"
-                            color="inherit"
-                            component={Link}
-                            to="/settings"
-                        >                            
-                                <Settings />
-                        </IconButton>
+                    <IconButton
+                        edge="end"
+                        aria-label="settings"
+                        color="inherit"
+                        component={Link}
+                        to="/settings"
+                    >                            
+                            <Settings />
+                    </IconButton>
                 </Toolbar >
             </AppBar>
             <Drawer variant="persistent" open={state.drawerOpen} className={classes.drawer} classes={{paper: classes.drawer}}>
