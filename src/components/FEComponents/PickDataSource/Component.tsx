@@ -7,6 +7,7 @@ import { Container, FormControl, NativeSelect, FormHelperText, Button, Grid } fr
 import { DataSourceState } from './Reducer';
 import { StoreState } from '../../../rootReducer';
 import { addSource, selectSource } from './Actions';
+import { getErrorMessage } from '../../../scripts/Helpers'
 
 function PickDataSource() {
 
@@ -44,7 +45,7 @@ function PickDataSource() {
             fr.readAsText(file);
         }
         catch(e) {
-            console.log(e.message);
+            console.log(getErrorMessage(e));
         }
     }
 
